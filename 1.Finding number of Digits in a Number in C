@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+void calculate(int number)
+{
+    int i;
+    int digits=0;
+
+    digits = floor(log10(number))+1;
+
+    printf("%d",digits);
+}
+
+int main()
+{
+    int number;
+
+    scanf("%d",&number);
+
+    calculate(number);
+    
+    return 0;
+}
