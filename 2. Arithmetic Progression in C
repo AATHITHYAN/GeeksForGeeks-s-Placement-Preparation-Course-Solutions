@@ -1,0 +1,20 @@
+//Arithmetic Progression in C
+
+#include <stdio.h>
+
+int nth_ap(int a, int d, int n)
+{
+  
+   return (a + (n - 1) * d);
+}
+
+int main() {
+   
+   int start = 2;
+   
+   int difference = 1;
+   
+   int n = 5;
+   printf("The %dth term of AP :%d\n", n, nth_ap(start,difference,n));
+   return 0;
+}
