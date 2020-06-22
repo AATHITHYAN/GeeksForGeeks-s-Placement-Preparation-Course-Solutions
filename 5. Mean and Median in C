@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int size;
+
+void sort(int array[], int size)
+{
+    int i,j, minIndex, temp;
+
+    for(i=0;i<size-1;i++)
+    {
+        minIndex = i;
+
+        for(j=i+1;j<size;j++)
+        {
+            if(array[j] < array[minIndex])
+                minIndex = j;
+        }
+
+        if(i != minIndex)
+        {
+            temp = array[i];
+            array[i] = array[minIndex];
+            array[minIndex] = temp;
+        }
+    }
+}
+
+void mean(int array[], int size)
+{
+    int sum=0;
+
+    for(int i=0;i<size;i++)
+        sum += array[i];
+
+    printf("mean = %.1lf \n",(double)sum/(double)size);
+}
+
+void median(int array[], int size)
+{
+    sort(array, size);
+
+    if(size%2 != 0)
+        printf("median = %.1lf", (double)array[size/2]);
+
+    else
+        printf("median = %.1lf",(double)(array[(size-1)/2] + array[size/2]) / 2.0);
+}
+
+int main()
+{
+    int array[8] ={ 1, 3, 4, 2, 7, 5, 8, 6 };
+
+    size = sizeof(array)/sizeof(array[0]);
+
+    mean(array, size);
+
+    median(array, size);
+
+    return 0;
+}
